@@ -22,7 +22,7 @@ const Shop = () => {
                     products.map(product => <Product handleAddToCart={handleAddToCart} product={product} key={product.id}></Product>)
                 }
             </div>
-            <div className="cart-container" style={{backgroundColor:'cyan'}}>
+            <div className="cart-container">
                 <h3>Order summary</h3>
                 <p>Selected Item: {cart.length}</p>
             </div>

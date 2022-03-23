@@ -5,6 +5,12 @@ import './Shop.css'
 const Shop = () => {
     const [products,setProducts] = useState([])
     const [cart, setCart] = useState([])
+    console.log(cart)
+    let totalPrice = 0
+    const all = cart.map((s) => {
+        totalPrice = totalPrice + s.price
+        return totalPrice
+    })
 
     useEffect(()=>{
         fetch('products.json')
@@ -25,6 +31,8 @@ const Shop = () => {
             <div className="cart-container">
                 <h3>Order summary</h3>
                 <p>Selected Item: {cart.length}</p>
+                <h3>Total Price: ${totalPrice}</h3>
+                <p>Total Shipping Charge: $5</p>
             </div>
         </div>
     );

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css'
 
@@ -7,7 +8,7 @@ const Shop = () => {
     const [cart, setCart] = useState([])
     console.log(cart)
     let totalPrice = 0
-    const all = cart.map((s) => {
+    cart.map((s) => {
         totalPrice = totalPrice + s.price
         return totalPrice
     })
@@ -29,10 +30,7 @@ const Shop = () => {
                 }
             </div>
             <div className="cart-container">
-                <h3>Order summary</h3>
-                <p>Selected Item: {cart.length}</p>
-                <h3>Total Price: ${totalPrice}</h3>
-                <p>Total Shipping Charge: $5</p>
+                <Cart cart={cart} totalPrice={totalPrice}></Cart>
             </div>
         </div>
     );
